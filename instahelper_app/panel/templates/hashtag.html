@@ -1,0 +1,97 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="row">
+    
+ 
+  <div class="col-xl-9 col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <form class="" method="POST" action="">
+              {{ form.hidden_tag() }}
+            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                  {% if started==False %}
+                  <center><h3>HASHTAG BOT</h3><h6  style="color:yellow;">(Not Running)</h6></center>
+                  
+                  {% else %}
+                  <center><h3>HASHTAG BOT <h6  style="color:green;">(Running)</h6></h3></center>
+                  {% endif %}
+              
+            </div>
+            <div class="row">
+              <div class="col-xl-4 form-group">
+                {% if started==False %}
+                  <fieldset>
+                    {% if form.hashtags.errors %}
+                    {{ form.hashtags(class="form-control form-control-user", rows='10', cols='1', placeholder="""tagname:postnumber
+    
+      Ex:
+      business:15
+      wedding:30""")}}
+                          <div class="invalid-feedback">
+                              {% for error in form.hashtags.errors %}
+                                  <span>{{ error }}</span>
+                              {% endfor %}
+                          </div>
+                    {%else%}
+                        <b>{{ form.hashtags.label()  }}</b>
+                        {{ form.hashtags(class="form-control form-control-user", rows='10', cols='1', placeholder="""tagname:postnumber
+    
+      Ex:
+      business:15
+      wedding:30""")}}
+                  {% endif %}
+                {% else %}
+                  <fieldset disabled>
+                    <b>{{ form.hashtags.label()  }}</b>
+                    {{ form.hashtags(class="form-control form-control-user", rows='10', cols='1', placeholder=tags)}}
+
+                
+                {% endif %}
+              </div>
+            </fieldset>
+
+              
+              <div class="col-xl-3 form-group ml-3">
+                  <br><br>
+                  {% if started==False %}
+                    <fieldset>
+                  {% else %}
+                    <fieldset disabled>
+                  {% endif %}
+                    {{ form.like(class="form-check-input")}} {{ form.like.label()}}<br>
+                    {{ form.comment(class="form-check-input")}} {{ form.comment.label()}}<br>
+                    {{ form.follow(class="form-check-input")}} {{ form.follow.label()}}<br><br><br>
+                  </fieldset>
+
+                  {% if started==False %}
+                    {{form.submit(class="btn btn-success btn-user btn-block")}}
+                  {% else %}
+                    <a href="{{ url_for('panel.stop_hashtag', accid=accid) }}">
+                      <button type="button" class="btn btn-danger">Stop Bot</button>
+                    </a>
+                  {% endif %}
+
+              </div>
+            
+            </div>
+
+
+            
+            
+            
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+   
+{% endblock content %}

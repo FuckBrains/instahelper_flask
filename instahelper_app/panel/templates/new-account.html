@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block content %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+  <!-- Page Heading -->
+  <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+
+</div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+{% endblock content %}
