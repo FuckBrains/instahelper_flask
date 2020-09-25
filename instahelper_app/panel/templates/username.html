@@ -12,10 +12,10 @@
               {{ form.hidden_tag() }}
             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                   {% if started==False %}
-                  <center><h3>HASHTAG BOT</h3><h6  style="color:yellow;">(Not Running)</h6></center>
+                  <center><h3>PROFILE POSTS BOT</h3><h6  style="color:yellow;">(Not Running)</h6></center>
                   
                   {% else %}
-                  <center><h3>HASHTAG BOT <h6  style="color:green;">(Running)</h6></h3></center>
+                  <center><h3>PROFILE POSTS BOT <h6  style="color:green;">(Running)</h6></h3></center>
                   {% endif %}
               
             </div>
@@ -23,20 +23,20 @@
               <div class="col-xl-4 form-group">
                 {% if started==False %}
                   <fieldset>
-                    {% if form.hashtags.errors %}
-                    {{ form.hashtags(class="form-control form-control-user", rows='10', cols='1', placeholder="""tagname:postnumber
+                    {% if form.usernames.errors %}
+                    {{ form.usernames(class="form-control form-control-user", rows='10', cols='1', placeholder="""tagname:postnumber
     
       Ex:
       business:15
       wedding:30""")}}
                           <div class="invalid-feedback">
-                              {% for error in form.hashtags.errors %}
+                              {% for error in form.usernames.errors %}
                                   <span>{{ error }}</span>
                               {% endfor %}
                           </div>
                     {%else%}
-                        <b>{{ form.hashtags.label()  }}</b>
-                        {{ form.hashtags(class="form-control form-control-user", rows='10', cols='1', placeholder="""tagname:postnumber
+                        <b>{{ form.usernames.label()  }}</b>
+                        {{ form.usernames(class="form-control form-control-user", rows='10', cols='1', placeholder="""tagname:postnumber
     
       Ex:
       business:15
@@ -44,8 +44,8 @@
                   {% endif %}
                 {% else %}
                   <fieldset disabled>
-                    <b>{{ form.hashtags.label()  }}</b>
-                    {{ form.hashtags(class="form-control form-control-user", rows='10', cols='1', placeholder=tags)}}
+                    <b>{{ form.usernames.label()  }}</b>
+                    {{ form.usernames(class="form-control form-control-user", rows='10', cols='1', placeholder=users)}}
 
                 
                 {% endif %}
@@ -66,12 +66,13 @@
                     {{ form.comment(checked=comment, class="form-check-input")}} {{ form.comment.label()}}<br>
                     {{ form.follow(class="form-check-input")}} {{ form.follow.label()}}<br><br><br>
                   {% endif %}
+                    
                   </fieldset>
 
                   {% if started==False %}
                     {{form.submit(class="btn btn-success btn-user btn-block")}}
                   {% else %}
-                    <a href="{{ url_for('panel.stop_hashtag', accid=accid) }}">
+                    <a href="{{ url_for('panel.stop_profilebot', accid=accid) }}">
                       <button type="button" class="btn btn-danger">Stop Bot</button>
                     </a>
                   {% endif %}

@@ -90,9 +90,7 @@ while True:
                     except:
                         pass
                     if r.get(username_data+"message") is None:
-                        print("8")
                         r.set(username_data+"message", try_again.text)
-                        print(try_again.text)
                     stop = 1
                 except:
                     logging.error("")

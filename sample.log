@@ -1,0 +1,109 @@
+WARNING:root:C:\Users\kaanh\insta.db
+WARNING:root:instahelper-flaskapp
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 11:38:06] "[35m[1mGET /panel/hat HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 11:38:06] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 11:38:06] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 11:38:06] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 11:38:06] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 11:38:06] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\kaanh\\GitRepos\\instahelper-flaskapp\\instahelper_app\\panel\\script\\utils.py', reloading
+WARNING:root:User bilginhale007 is not logged in.
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 11:42:03] "[35m[1mGET /panel/hat HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\kaanh\\GitRepos\\instahelper-flaskapp\\instahelper_app\\panel\\routes.py', reloading
+WARNING:root:User bilginhale007 is not logged in.
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 12:00:00] "[35m[1mGET /panel/hat HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 12:00:00] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 12:00:00] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 12:00:00] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 12:00:00] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+WARNING:root:User bilginhale007 is not logged in.
+WARNING:root:0
+WARNING:root:0
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 12:01:14] "[35m[1mGET /panel/hat HTTP/1.1[0m" 500 -
+WARNING:root:C:\Users\kaanh\insta.db
+WARNING:root:instahelper-flaskapp
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:45:49] "[35m[1mGET /panel/hat HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:45:49] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:45:49] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:45:49] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:45:49] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\kaanh\\GitRepos\\instahelper-flaskapp\\instahelper_app\\panel\\script\\utils.py', reloading
+WARNING:root:C:\Users\kaanh\insta.dbsasdadsdasd
+WARNING:root:instahelper-flaskappweqwewqeqw
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:49:45] "[35m[1mGET /panel/hat HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:49:45] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:49:45] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:49:45] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:49:45] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:51:25] "[35m[1mGET /panel/hat HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:51:26] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:51:26] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:51:26] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:51:26] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\kaanh\\GitRepos\\instahelper-flaskapp\\instahelper_app\\panel\\script\\utils.py', reloading
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:52:17] "[35m[1mGET /panel/hat HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:52:17] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:52:17] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:52:17] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:52:17] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\kaanh\\GitRepos\\instahelper-flaskapp\\instahelper_app\\panel\\script\\utils.py', reloading
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:53:17] "[35m[1mGET /panel/hat HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:53:17] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:53:17] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:53:17] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 15:53:17] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\kaanh\\GitRepos\\instahelper-flaskapp\\instahelper_app\\panel\\script\\utils.py', reloading
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 16:00:40] "[35m[1mGET /panel/hat HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 16:00:40] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 16:00:40] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 16:00:40] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 16:00:40] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\kaanh\\GitRepos\\instahelper-flaskapp\\instahelper_app\\panel\\script\\utils.py', reloading
+WARNING:root:User bilginhale007 is not logged in.
+WARNING:root:User bilginhale007 is not logged in.
+WARNING:root:0
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 16:05:02] "[35m[1mGET /panel/hat HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 16:05:02] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 16:05:02] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 16:05:02] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 16:05:02] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\kaanh\\GitRepos\\instahelper-flaskapp\\instahelper_app\\panel\\script\\utils.py', reloading
+WARNING:root:User bilginhale007 is not logged in.
+WARNING:root:User bilginhale007 is not logged in.
+WARNING:root:0
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 16:34:53] "[35m[1mGET /panel/hat HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 16:34:53] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 16:34:53] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 16:34:53] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 16:34:53] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\kaanh\\GitRepos\\instahelper-flaskapp\\instahelper_app\\panel\\routes.py', reloading
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 16:59:07] "[35m[1mGET /panel/hat HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\kaanh\\GitRepos\\instahelper-flaskapp\\instahelper_app\\panel\\routes.py', reloading
+WARNING:root:User bilginhale007 is not logged in.
+ERROR:root:Login button at home page did not load.
+ERROR:root:Username input couldn't loaded
+INFO:werkzeug: * Detected change in 'C:\\Users\\kaanh\\GitRepos\\instahelper-flaskapp\\instahelper_app\\panel\\routes.py', reloading
+WARNING:root:User bilginhale007 is not logged in.
+WARNING:root:User bilginhale007 is not logged in.
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 17:01:13] "[35m[1mGET /panel/hat HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 17:01:13] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 17:01:13] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 17:01:15] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 17:01:15] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\kaanh\\GitRepos\\instahelper-flaskapp\\instahelper_app\\panel\\routes.py', reloading
+WARNING:root:User bilginhale007 is not logged in.
+WARNING:root:User bilginhale007 is not logged in.
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 17:02:32] "[35m[1mGET /panel/hat HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 17:02:32] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 17:02:32] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 17:02:32] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 17:02:32] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\kaanh\\GitRepos\\instahelper-flaskapp\\instahelper_app\\panel\\script\\utils.py', reloading
+WARNING:root:User bilginhale007 is not logged in.
+WARNING:root:User bilginhale007 is not logged in.
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 17:04:25] "[35m[1mGET /panel/hat HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 17:04:25] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 17:04:25] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 17:04:25] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 17:04:25] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Sep/2020 17:04:25] "[37mGET /panel/hat?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -

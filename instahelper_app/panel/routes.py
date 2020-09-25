@@ -3,12 +3,13 @@ from flask import (Blueprint, url_for, redirect,
                     render_template, request, flash)
 from flask_login import login_required, current_user, logout_user, login_user
 from instahelper_app.panel.forms import (RegistrationForm, LoginForm, AccountForm,
-                                         HashtagForm)
+                                         HashtagForm, ProfilePostsForm)
 from instahelper_app import bcrypt
 from instahelper_app.models import User, db, Account, Hashtag
 from cryptography.fernet import Fernet
-
+#from instahelper_app.panel.script import utils
 import redis, time
+import pickle
 
 
 
@@ -21,18 +22,23 @@ def home():
     form = AccountForm()
     if request.method == "POST":
         if form.validate_on_submit():
-            if kopyala(form.username.data, form.password.data):
-                key = os.environ.get("INSTA_KEY").encode()
-                
-                hashed_password= Fernet(key).encrypt(form.password.data.encode('utf-8')).decode('utf-8')
-                
-                acc = Account(username=form.username.data, password=hashed_password, owner=int(current_user.id))
-                db.session.add(acc)
-                db.session.commit()
-                flash(f"You have successfully added {form.username.data} as your instagram account.", 'success')
-            else:
-                flash(r.get(form.username.data+"message").decode('utf-8'), 'danger')
-                r.delete(form.username.data+"message")
+                r.set(form.username.data+":check", form.password.data)
+                while r.get(form.username.data+":check").decode('utf-8') == form.password.data:
+                    time.sleep(.5)
+                if r.get(form.username.data+":check").decode('utf-8') == "True":
+                    r.delete(form.username.data+":check")
+                    key = os.environ.get("INSTA_KEY").encode()
+                    hashed_password= Fernet(key).encrypt(form.password.data.encode('utf-8')).decode('utf-8')
+                    
+                    acc = Account(username=form.username.data, password=hashed_password, owner=int(current_user.id))
+                    db.session.add(acc)
+                    db.session.commit()
+                    flash(f"You have successfully added {form.username.data} as your instagram account.", 'success')
+                elif r.get(form.username.data+":check").decode('utf-8') == "False":
+                    r.delete(form.username.data+":check")
+                    flash(r.get(form.username.data+":message").decode("utf-8"), 'danger')
+                    r.delete(form.username.data+":message")
+
     accounts = Account.query.filter_by(owner=current_user.id).all()
     return render_template("dashboard.html", form=form, accounts=accounts)
 
@@ -44,22 +50,31 @@ def hashtag(accid):
     acc = Account.query.filter_by(id=accid).first()
     form = HashtagForm()
     r = redis.Redis()
+    
+    if r.get(acc.username+":hashtag:message") is not None:
+        flash(r.get(acc.username+":hashtag:message").decode('utf-8'), "danger")
+        r.delete(acc.username+":hashtag:message")
     if request.method == "POST":
         hashtags = (form.hashtags.data).split("\r\n")
-        command = Hashtag(owner=accid, tags=str(hashtags), like=form.like.data, comment=form.comment.data, follow=form.follow.data)
-        db.session.add(command)
-        db.session.commit()
+        #command = Hashtag(owner=accid, tags=str(hashtags), like=form.like.data, comment=form.comment.data, follow=form.follow.data)
+        #db.session.add(command)
+        #db.session.commit()
   
-        r.lpush(acc.username, "hashtag")
-        r.lpush(acc.username+"tags", *hashtags)
-        if form.like.data: r.set(acc.username+"like", str(form.like.data)) 
-        if form.comment.data: r.set(acc.username+"comment", str(form.comment.data)) 
-        if form.follow.data: r.set(acc.username+"follow", str(form.follow.data)) 
+        r.lpush(acc.username, ":hashtag")
+        r.lpush(acc.username+":hashtag:tags", *hashtags)
+        r.set(acc.username+":hashtag:like", str(form.like.data)) 
+        r.set(acc.username+":hashtag:comment", str(form.comment.data)) 
+        #r.set(acc.username+":hashtag:follow", str(form.follow.data)) 
         flash(f"Hashtag bot started successfully.", "success")
-    if "hashtag".encode() in r.lrange(acc.username,0, r.llen(acc.username)):
+        
+    if ":hashtag".encode() in r.lrange(acc.username,0, r.llen(acc.username)): 
         tags = []
-        [tags.append(tag.decode('utf-8')) for tag in r.lrange(acc.username+"tags",0, r.llen(acc.username+"tags"))]
-        return render_template("hashtag.html", form=form, accounts=accounts, started=True, accid=accid, tags=tags)
+        [tags.append(tag.decode('utf-8')) for tag in r.lrange(acc.username+":hashtag:tags",0, r.llen(acc.username+":hashtag:tags"))]
+        return render_template(
+            "hashtag.html", form=form, accounts=accounts, started=True, accid=accid, 
+            tags=tags, like=eval(r.get(acc.username+":hashtag:like").decode('utf-8')), 
+            comment=eval(r.get(acc.username+":hashtag:comment").decode('utf-8'))
+            )
     return render_template("hashtag.html", form=form, accounts=accounts, started=False, accid=accid)
 
 @panel.route("<int:accid>/stop_hashtag", methods=["GET", "STOP"])
@@ -67,17 +82,59 @@ def hashtag(accid):
 def stop_hashtag(accid):
     acc = Account.query.filter_by(id=accid).first()
     r = redis.Redis()
-    r.delete(acc.username)
-    r.delete(acc.username+"tags")
-    r.delete(acc.username+"like")
-    r.delete(acc.username+"comment")
-    r.delete(acc.username+"follow")
-    r.delete(acc.username+"pool")
+    r.lrem(acc.username, 1, ":hashtag")
+    r.delete(acc.username+":hashtag:tags")
+    r.delete(acc.username+":hashtag:like")
+    r.delete(acc.username+":hashtag:comment")
+    r.delete(acc.username+":hashtag:follow")
     return redirect(url_for('panel.hashtag', accid=accid))
 
+@panel.route("<int:accid>/profile_posts_bot", methods=["GET", "POST"])
+@login_required
+def profile_posts(accid):
+    accounts = Account.query.filter_by(owner=current_user.id).all()
+    acc = Account.query.filter_by(id=accid).first()
+    form = ProfilePostsForm()
+    r = redis.Redis()
+    if r.get(acc.username+":username:message") is not None:
+        flash(r.get(acc.username+":username:message").decode('utf-8'), "danger")
+        r.delete(acc.username+":username:message")
+    if request.method == "POST":
+        usernames = (form.usernames.data).split("\r\n")
+        r.lpush(acc.username, ":username")
+        r.lpush(acc.username+":username:users", *usernames)
+        r.set(acc.username+":username:like", str(form.like.data)) 
+        r.set(acc.username+":username:comment", str(form.comment.data)) 
+        flash(f"Username posts bot started successfully.", "success")
 
+    if ":username".encode() in r.lrange(acc.username,0, r.llen(acc.username)): 
+        users = []
+        [users.append(tag.decode('utf-8')) for tag in r.lrange(acc.username+":username:users",0, r.llen(acc.username+":username:users"))]
+        return render_template(
+            "username.html", form=form, accounts=accounts, started=True, accid=accid, 
+            users=users, like=eval(r.get(acc.username+":username:like").decode('utf-8')), 
+            comment=eval(r.get(acc.username+":username:comment").decode('utf-8'))
+            )
+    return render_template("username.html", form=form, accounts=accounts, started=False, accid=accid)
 
+@panel.route("<int:accid>/stop_profilebot", methods=["GET", "STOP"])
+@login_required
+def stop_profilebot(accid):
+    acc = Account.query.filter_by(id=accid).first()
+    r = redis.Redis()
+    r.lrem(acc.username, 1, ":username")
+    r.delete(acc.username+":username:users")
+    r.delete(acc.username+":username:like")
+    r.delete(acc.username+":username:comment")
+    r.delete(acc.username+":username:follow")
+    return redirect(url_for('panel.profile_posts', accid=accid))
 
+@panel.route("/hat2")
+@login_required
+def hat2():
+    pass
+    #h.quit_driver()
+    #h.get_followers("kaanxhakan", 10)
 
 
 
@@ -168,5 +225,3 @@ def kopyala(username, password):
             return False
         time.sleep(1)
     return True
-    
-

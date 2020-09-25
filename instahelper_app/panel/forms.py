@@ -40,3 +40,10 @@ class HashtagForm(FlaskForm):
     comment = BooleanField('Send Comment to Posts')
     follow = BooleanField('Follow Owner')
     submit = SubmitField('Start Bot')
+
+class ProfilePostsForm(FlaskForm):
+    usernames = TextAreaField('Usernames', validators=[Length(min=0, max=500)])
+    like = BooleanField('Like Posts')
+    comment = BooleanField('Send Comment to Posts')
+    follow = BooleanField('Follow Owner')
+    submit = SubmitField('Start Bot')

@@ -45,6 +45,15 @@ with sqlite3.connect(DB_PATH) as conn:
 query_hash = "bfa387b2992c3a52dcbe447467b4b771"
 
 class insta:
+    def __init__(self):
+        #logging.basicConfig(filename='sample.log')
+        self.logging.basicConfig(level=logging.INFO)
+        self.driver = webdriver.Chrome(executable_path=r'chromedriver.exe', options = opt)
+        executes(self.driver)
+        self.driver.set_page_load_timeout(15)
+        self.driver.implicitly_wait(5)
+        self.r = redis.Redis()
+        self.login_user()
 
     def go(self, url):
         logging.info(f"Loading {url}")
@@ -150,7 +159,7 @@ class insta:
 
     ########################################################################################################
 
-    def login_user():
+    def login_user(self):
         if go("https://www.instagram.com"):
             logging.info(f"Logging in for {USERNAME}")
             try:
@@ -191,7 +200,7 @@ class insta:
             if is_logged_in(): logging.info(f"LOGGED AS {USERNAME}")
             check_popup_buttons()
 
-    def get_tag_pics(tag, post_num, type="n"):
+    def get_tag_pics(self, tag, post_num, type="n"):
         """
         type= "t" for only top posts, "n" for only normal posts, "all" for all of them
         post_num= how many posts to make action
@@ -214,7 +223,7 @@ class insta:
         #post_pool.extend(posts_ids)
         return posts_ids
 
-    def get_profile_pics(username, post_num):
+    def get_profile_pics(self, username, post_num):
         global post_pool
         if not is_logged_in():
             login_user()
@@ -242,7 +251,7 @@ class insta:
         
         
 
-    def like_a_pic(pic_id):
+    def like_a_pic(self, pic_id):
         try:
             like_button = WebDriverWait(driver, 5).until(
                 EC.presence_of_element_located((By.XPATH, read_xpath(like_a_pic.__name__, "like_button")))
@@ -256,7 +265,7 @@ class insta:
             logging.info(f"Liked {pic_id}")
             return True
 
-    def post_comment(pic_id):
+    def post_comment(self, pic_id):
         go(f"https://www.instagram.com/p/{pic_id}/comments")
         try:
             post_button = WebDriverWait(driver, 5).until(
@@ -276,7 +285,7 @@ class insta:
             logging.info(f"Comment posted at {pic_id}")
             return True
 
-    def like_or_comment(command, postpool, if_liked_dontcomment=False):
+    def like_or_comment(self,command, postpool, if_liked_dontcomment=False):
         
         liked_posts = []
         commented_posts = []
@@ -318,7 +327,7 @@ class insta:
                 logging.info(f"Liking posts are done. Commented {len(commented_posts)}/{len(postpool)}")
 
 
-    def follow_an_user(username):
+    def follow_an_user(self,username):
         user_url = f"https://www.instagram.com/{username}/"
         go(user_url)
         if user_url == driver.current_url:
@@ -359,11 +368,38 @@ class insta:
             return False
         check_spam()
 
+def get_followers(self, username, follower_count=30):
+        self.r.set("hakan", "haha")
+        try:
+            driver.execute_script('window._sharedData.entry_data["HttpErrorPage"]["length"];')
+            #logging.error(f"{username} is not exist.")
+            return False
+        except:         
+            query_hash="c76146de99bb02f6415203be841dd25a"
+            user_url = f"https://www.instagram.com/{username}"
+            driver.get(user_url)
+            is_private = driver.execute_script("return window._sharedData.entry_data.ProfilePage[0].graphql.user.is_private")
+            if not is_private:
+                user_id = driver.execute_script("return window._sharedData.entry_data.ProfilePage[0].graphql.user.id")
+                
+                is_followed = driver.execute_script("return window._sharedData.entry_data.ProfilePage[0].graphql.user.followed_by_viewer")
+                total_follower = driver.execute_script("return window._sharedData.entry_data.ProfilePage[0].graphql.user.edge_followed_by.count")
+                if total_follower > 0:
+                    if total_follower < follower_count: follower_count = total_follower
+                    followerlist_url = urllib.parse.quote(f'{{"id":"{user_id}","include_reel":true,"fetch_mutual":true,"first":100}}')
+                    driver.get(f"https://instagram.com/graphql/query/?query_hash={query_hash}&variables=" + followerlist_url)
+                    follow_pool = []
+                    json_data = json.loads(driver.find_element_by_tag_name("pre").text)
+                    for user in json_data['data']['user']['edge_followed_by']['edges']:
+                        if user['node']['followed_by_viewer']:continue
+                        follow_pool.append(user['node']['username'])
+                        if len(follow_pool) == follower_count:break
+                    
+                    return follow_pool
 
 
 
-
-    def quit_driver():
+    def quit_driver(self):
         driver.quit()
 
 """go("https://www.instagram.com/")

@@ -26,6 +26,8 @@ class Account(db.Model):
     password = db.Column(db.String(20), nullable=False)
     creation_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     owner = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    cookies = db.Column(db.String(300))
+    inst = db.Column(db.String(500))
     hashtag_commands = db.relationship('Hashtag', backref='hashtag', lazy=True)
 
     def __repr__(self):

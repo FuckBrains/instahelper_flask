@@ -68,7 +68,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Bot List:</h6>
             <a class="collapse-item" href="{{url_for('panel.hashtag', accid=i.id)}}">#hashtag Operations</a>
-            <a class="collapse-item" href="utilities-border.html">Borders</a>
+            <a class="collapse-item" href="{{url_for('panel.profile_posts', accid=i.id)}}">Profile Posts Bot</a>
             <a class="collapse-item" href="utilities-animation.html">Animations</a>
             <a class="collapse-item" href="utilities-other.html">Other</a>
           </div>
